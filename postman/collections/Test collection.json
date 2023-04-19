@@ -99,6 +99,26 @@
 							"cookie": []
 						}
 					]
+				},
+				{
+					"name": "New Request",
+					"id": "e0e4dfa9-1974-4c7e-9358-c9b7acbde927",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "www.google.com",
+							"host": [
+								"www",
+								"google",
+								"com"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "2f47079e-a282-4874-9357-0714b24cb97c"
