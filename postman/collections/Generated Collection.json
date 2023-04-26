@@ -536,7 +536,7 @@
 		},
 		{
 			"name": "All network usage",
-			"id": "1f20c371-2397-4db5-b2a1-37f5ab6b307d",
+			"id": "7a4515b6-a165-4a06-9c89-e21a67a073a1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -549,30 +549,30 @@
 					}
 				],
 				"url": {
-					"raw": "{{baseUrl}}/network2",
+					"raw": "{{baseUrl}}/network",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"network2"
+						"network"
 					]
 				},
 				"description": "The `/network` endpoint returns a network report with statistics on user activity, resource management, and found security risks. \nThe response contains an array of network information containing the `name`, `id`, `owner` and `uid` of each network."
 			},
 			"response": [
 				{
-					"id": "b570c161-8e75-42b3-ad59-fcd8994e4bd4",
+					"id": "238a43f9-b20d-4758-bd95-af0910884835",
 					"name": "Valid Response",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/network2",
+							"raw": "{{baseUrl}}/network",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"network2"
+								"network"
 							]
 						}
 					},
