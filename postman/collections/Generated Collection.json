@@ -9,70 +9,7 @@
 	"item": [
 		{
 			"name": "network",
-			"item": [
-				{
-					"name": "All network usage",
-					"id": "cce788c9-8e4a-4502-a8a3-d71fa707368d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/network",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"network"
-							]
-						},
-						"description": "The `/network` endpoint returns a network report with statistics on user activity, resource management, and found security risks. \nThe response contains an array of network information containing the `name`, `id`, `owner` and `uid` of each network."
-					},
-					"response": [
-						{
-							"id": "2d8c236a-eda5-4ec1-b902-38a386581260",
-							"name": "Valid Response",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/network",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"network"
-									]
-								},
-								"description": "The `/network` endpoint returns a network report with statistics on user activity, resource management, and found security risks. \nThe response contains an array of network information containing the `name`, `id`, `owner` and `uid` of each network."
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n  \"network\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"uid\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"uid\": \"<string>\"\n    }\n  ]\n}"
-						}
-					]
-				}
-			],
+			"item": [],
 			"id": "794027d0-14e6-4115-a87b-7c83ec790603"
 		},
 		{
@@ -114,12 +51,10 @@
 													],
 													"variable": [
 														{
-															"id": "984921a5-cf8a-4068-beff-fb33c79a4d94",
 															"key": "adminId",
 															"value": "<string>"
 														},
 														{
-															"id": "b7222f70-b5e4-4296-9075-6a36a8398297",
 															"key": "userId",
 															"value": "<string>"
 														}
@@ -152,12 +87,10 @@
 															],
 															"variable": [
 																{
-																	"id": "984921a5-cf8a-4068-beff-fb33c79a4d94",
 																	"key": "adminId",
 																	"value": "<string>"
 																},
 																{
-																	"id": "b7222f70-b5e4-4296-9075-6a36a8398297",
 																	"key": "userId",
 																	"value": "<string>"
 																}
@@ -206,12 +139,10 @@
 													],
 													"variable": [
 														{
-															"id": "5da6e70b-3a5f-48c3-82cb-282243989087",
 															"key": "adminId",
 															"value": "<string>"
 														},
 														{
-															"id": "131af1c2-6d8c-40cb-a87e-679cd45e296f",
 															"key": "userId",
 															"value": "<string>"
 														}
@@ -244,12 +175,10 @@
 															],
 															"variable": [
 																{
-																	"id": "5da6e70b-3a5f-48c3-82cb-282243989087",
 																	"key": "adminId",
 																	"value": "<string>"
 																},
 																{
-																	"id": "131af1c2-6d8c-40cb-a87e-679cd45e296f",
 																	"key": "userId",
 																	"value": "<string>"
 																}
@@ -312,12 +241,10 @@
 													],
 													"variable": [
 														{
-															"id": "337489a1-a265-4a7b-9ff6-5e1d35aee193",
 															"key": "adminId",
 															"value": "<string>"
 														},
 														{
-															"id": "ca467f88-60a9-42cb-a110-dabe24517b47",
 															"key": "userId",
 															"value": "<string>"
 														}
@@ -364,12 +291,10 @@
 															],
 															"variable": [
 																{
-																	"id": "337489a1-a265-4a7b-9ff6-5e1d35aee193",
 																	"key": "adminId",
 																	"value": "<string>"
 																},
 																{
-																	"id": "ca467f88-60a9-42cb-a110-dabe24517b47",
 																	"key": "userId",
 																	"value": "<string>"
 																}
@@ -424,7 +349,6 @@
 											],
 											"variable": [
 												{
-													"id": "9b556e03-e2a0-4b09-b2b2-cd76634e236e",
 													"key": "adminId",
 													"value": "<string>"
 												}
@@ -460,7 +384,6 @@
 													],
 													"variable": [
 														{
-															"id": "9b556e03-e2a0-4b09-b2b2-cd76634e236e",
 															"key": "adminId",
 															"value": "<string>"
 														}
@@ -532,7 +455,6 @@
 													],
 													"variable": [
 														{
-															"id": "6209ff4a-cac1-45b5-bb18-54619fcb43c9",
 															"key": "adminId",
 															"value": "<string>"
 														}
@@ -579,7 +501,6 @@
 															],
 															"variable": [
 																{
-																	"id": "6209ff4a-cac1-45b5-bb18-54619fcb43c9",
 																	"key": "adminId",
 																	"value": "<string>"
 																}
@@ -612,13 +533,70 @@
 				}
 			],
 			"id": "11ca2a16-318b-4284-9776-690f54e4f28f"
+		},
+		{
+			"name": "All network usage",
+			"id": "1f20c371-2397-4db5-b2a1-37f5ab6b307d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/network2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"network2"
+					]
+				},
+				"description": "The `/network` endpoint returns a network report with statistics on user activity, resource management, and found security risks. \nThe response contains an array of network information containing the `name`, `id`, `owner` and `uid` of each network."
+			},
+			"response": [
+				{
+					"id": "b570c161-8e75-42b3-ad59-fcd8994e4bd4",
+					"name": "Valid Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/network2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"network2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"network\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"uid\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"uid\": \"<string>\"\n    }\n  ]\n}"
+				}
+			]
 		}
 	],
 	"variable": [
 		{
 			"id": "f604676a-d2af-4601-9032-0a694085992d",
 			"key": "baseUrl",
-			"value": "https://api.postmanova.com"
+			"value": "https://api.postmanova.com",
+			"type": "string"
 		}
 	]
 }
