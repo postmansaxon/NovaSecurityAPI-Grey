@@ -4,7 +4,7 @@ servers:
 info:
   contact: {}
   description: |-
-    **The NOVA Security User Management API allows you to programmatically access NOVA network users and perform admin tasks.**
+    ** NOVA Security User Management API allows you to programmatically access NOVA network users and perform admin tasks.**
 
     When integrating the NOVA Security User Management API with other systems, it is good practice to keep an eye on activity that may pose a security risk. 
 
