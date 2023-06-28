@@ -1,0 +1,806 @@
+{
+	"info": {
+		"_postman_id": "1b083100-b85b-4efb-9679-a1b8f81e8b1e",
+		"name": "Users API",
+		"description": "API for creating and managing NOVA Security users.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25255214-1b083100-b85b-4efb-9679-a1b8f81e8b1e"
+	},
+	"item": [
+		{
+			"name": "get",
+			"item": [
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "91bd7ed0-9134-4043-9cba-5adf8b27a2c7",
+								"exec": [
+									"const res = pm.response.json();",
+									"const id = pm.collectionVariables.get('id');",
+									"",
+									"pm.environment.set(\"data\", JSON.stringify(res[1]));",
+									"",
+									"pm.test('Status code is 200', () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('One user exists', () => {",
+									"   pm.expect(res).to.have.length(2);",
+									"});",
+									"",
+									"pm.test('User has all relevant fields', () => {",
+									"    res.forEach((val, i) => {",
+									"        if (i > 0) {",
+									"            pm.expect(val).to.have.all.keys('id', 'firstName', 'lastName');",
+									"            ",
+									"        }",
+									"    });",
+									"});",
+									"",
+									"pm.test('User passwords are not exposed', () => {",
+									"    res.forEach((val) => {",
+									"       pm.expect(val).to.not.have.property('password');",
+									"    });",
+									"});",
+									"",
+									"// cleanup",
+									"pm.globals.unset('id');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "22ff3794-7e3f-461a-8b6e-f0d82ef15c47",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/get?all=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "all",
+									"value": "true"
+								}
+							]
+						},
+						"description": "Get all users in the system."
+					},
+					"response": [
+						{
+							"id": "e397c77e-d648-4a68-b646-011aa7b37e9b",
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/get?all=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get"
+									],
+									"query": [
+										{
+											"key": "all",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"disabled": false,
+									"key": "Connection",
+									"value": "keep-alive",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "Content-Length",
+									"value": "105",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "Date",
+									"value": "Fri, 11 Jan 2019 00:00:53 GMT",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "ETag",
+									"value": "W/\"69-ti7ujd/Cyb8EeoWoqRXh482Zy5o\"",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "X-Powered-By",
+									"value": "Express",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"status\": \"success\"\n  },\n  {\n    \"firstName\": \"Ben\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n    \"lastName\": \"Smith\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get users by last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "26355872-8e7c-48e9-ad88-70b9853fcf6a",
+								"exec": [
+									"const res = pm.response.json();",
+									"const id = pm.collectionVariables.get('id');",
+									"",
+									"pm.test('Status code is 200', () => {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('List of users is returned', () => {",
+									"    pm.expect(res).to.be.an('array');",
+									"});",
+									"",
+									"pm.test('User passwords are not exposed', () => {",
+									"    res.forEach((val, i) => {",
+									"        if (i > 0) {",
+									"            pm.expect(val).to.not.have.all.keys('password');   ",
+									"        }",
+									"    });",
+									"});",
+									"",
+									"pm.test('User has all relevant fields and correct types', () => {",
+									"    res.forEach((val, i) => {",
+									"        if (i > 0) {",
+									"            pm.expect(val.id).to.be.a('string');",
+									"            pm.expect(val.firstName).to.be.a('string');",
+									"            pm.expect(val.lastName).to.be.a('string');",
+									"        }",
+									"    });",
+									"});",
+									"",
+									"// cleanup",
+									"pm.collectionVariables.unset('id');",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "921f6078-1a61-49f6-aaa3-1bebfb123e70",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/get/?firstName=Keebler",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"get",
+								""
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Keebler",
+									"description": "The user's first name (required)"
+								}
+							]
+						},
+						"description": "Retrieves all users with the given `firstName`."
+					},
+					"response": [
+						{
+							"id": "c1320392-fd63-4ab6-b768-69497406af90",
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/get/?firstName=Douglas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get",
+										""
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "Douglas"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"disabled": false,
+									"key": "Connection",
+									"value": "keep-alive",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "Content-Length",
+									"value": "105",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "Date",
+									"value": "Fri, 11 Jan 2019 00:05:34 GMT",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "ETag",
+									"value": "W/\"69-F/ktIhtM5We/sndYYNUK1vmdEnQ\"",
+									"description": ""
+								},
+								{
+									"disabled": false,
+									"key": "X-Powered-By",
+									"value": "Express",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"status\": \"success\"\n  },\n  {\n    \"firstName\": \"Kristopher\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n    \"lastName\": \"Kozey\"\n  }\n]"
+						}
+					]
+				}
+			],
+			"id": "ebe59baf-5beb-4a22-bd8e-07ee6387f7cb"
+		},
+		{
+			"name": "New user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e7bf4c4-5134-421a-a6b4-0eb1e7b4ed60",
+						"exec": [
+							"const res = pm.response.json();",
+							"",
+							"pm.environment.set('id', res.id);",
+							"",
+							"pm.test('Status code is 200', () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('API response is successful', () => {",
+							"    pm.expect(res.status).to.eql('success');",
+							"});",
+							"",
+							"pm.test('Created user has correct type of user ID', () => {",
+							"    pm.expect(res.id).to.be.a('string');",
+							"});",
+							"",
+							"pm.test('Does not expose user password', () => {",
+							"    pm.expect(res).to.not.have.property('password');",
+							"});",
+							"",
+							"pm.test('Created user has all relevant fields', () => {",
+							"    pm.expect(res).to.have.all.keys('status', 'id', 'firstName', 'lastName');",
+							"});",
+							"pm.collectionVariables.set('id', pm.response.json().id)",
+							"",
+							"function rawToObject (str) {",
+							"    return str.split('&').reduce((prev, curr, i, arr) => {",
+							"        var p = curr.split('=');",
+							"        prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);",
+							"        return prev;",
+							"    }, {});",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "6664b7e7-939d-48fd-8159-c3c701ca2769",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"Toni\",\n  \"lastName\": \"Von\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/create",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"create"
+					]
+				},
+				"description": "Creates a new user in the system. The user will be assigned an ID automatically. This can be found in the response."
+			},
+			"response": [
+				{
+					"id": "32d5606f-4212-4bdb-a991-2eff98674deb",
+					"name": "New user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Isai\",\n  \"lastName\": \"Christiansen\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/create",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"disabled": false,
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Content-Length",
+							"value": "101",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Date",
+							"value": "Thu, 10 Jan 2019 23:58:59 GMT",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "ETag",
+							"value": "W/\"65-KsPJ95rCxmmvvRBY2Sqroxk2vmA\"",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"firstName\": \"Ben\",\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"lastName\": \"Smith\",\n  \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9cfdb28b-6266-42f5-ad4a-fe3731af00c1",
+						"exec": [
+							"const response = pm.response;",
+							"const id = pm.request.url.query.get('id');",
+							"",
+							"pm.test('Operation is successful', () => {",
+							"    const res = response.json();",
+							"    pm.expect(res.status).to.eql('success');",
+							"});",
+							"",
+							"pm.test('User matches requested user', () => {",
+							"    const res = response.json();",
+							"    pm.expect(res.id).to.eql(id);",
+							"});",
+							"",
+							"",
+							"// cleanup",
+							"pm.collectionVariables.unset('id');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "f755aa9d-ad07-4281-bfc4-d69b511fe697",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"\""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/delete?id={{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"description": "The user's ID"
+						}
+					]
+				},
+				"description": "Deletes a user from the system by `id`."
+			},
+			"response": [
+				{
+					"id": "fe3ca5c8-6026-4f85-a1ee-0d58a346b9a6",
+					"name": "Delete user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"\""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/delete?id={{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"disabled": false,
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Content-Length",
+							"value": "64",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Date",
+							"value": "Fri, 11 Jan 2019 00:20:55 GMT",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "ETag",
+							"value": "W/\"40-bT/ASzl0KO3wj/eo2xEBaHPLnvk\"",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "59c80abb-bf88-4f0c-8d91-ece9b46cda74",
+						"exec": [
+							"const res = pm.response.json();",
+							"const id = pm.request.url.query.get('id');",
+							"const firstName =JSON.parse(pm.request.body.raw).firstName",
+							"console.log('res.id vs id: '+res.id + id)",
+							"pm.test('Status code is 200', () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"if (res.status === 'success') {",
+							"    // pm.test('User matches requested user', () => {",
+							"    //     pm.expect(res.id).to.eql(id);",
+							"    // });",
+							"    ",
+							"    pm.test('User has correct type of user ID', () => {",
+							"        pm.expect(res.id).to.be.a('string');",
+							"    });",
+							"    ",
+							"    pm.test('User has all relevant fields', () => {",
+							"        pm.expect(res).to.have.all.keys('status', 'id', 'firstName', 'lastName');",
+							"    });",
+							"    ",
+							"    pm.test('Does not expose user password', () => {",
+							"        pm.expect(res).to.not.have.property('password');",
+							"    });",
+							"    ",
+							"    pm.test('First name is updated to: ' + firstName, () => {",
+							"        pm.expect(res.firstName).to.eql(firstName);",
+							"    });",
+							"}",
+							"",
+							"else if (res.status === 'no user found') {",
+							"    pm.test('Lookup was against correct user', () => {",
+							"        pm.expect(res.id).to.eql(id);",
+							"    });",
+							"}",
+							"",
+							"else {",
+							"    pm.test(res.status).to.eql('invalid request');",
+							"}",
+							"",
+							"// cleanup",
+							"pm.collectionVariables.unset('id');",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "94dda160-d407-4ec1-aa0a-8f8b2e05b36f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"Benjamin\",\n  \"password\": \"foobar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/update?id={{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{id}}",
+							"description": "The user's ID (required)"
+						}
+					]
+				},
+				"description": "Send the keys that you'd like to update, this can be one or more of `firstName`, `lastName` and `password`."
+			},
+			"response": [
+				{
+					"id": "b4cf26f0-9a15-4b90-8acd-1660c5186d6b",
+					"name": "Update user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Benjamin\",\n  \"password\": \"foobar\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/update?id={{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{id}}"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"disabled": false,
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Content-Length",
+							"value": "106",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "Date",
+							"value": "Fri, 11 Jan 2019 00:18:07 GMT",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "ETag",
+							"value": "W/\"6a-SA9mzR+M2pmN7WPGgLm1ZqtRYis\"",
+							"description": ""
+						},
+						{
+							"disabled": false,
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"firstName\": \"Benjamin\",\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"lastName\": \"Smith\",\n  \"status\": \"success\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b8bcd2a0-f46d-4fe5-8b44-f9a6afbf68d7",
+				"type": "text/javascript",
+				"exec": [
+					"const token = pm.environment.get(\"token\");",
+					"const tokenExpired = token > new Date()",
+					"",
+					"if (tokenExpired) {",
+					"    postman.setNextRequest('Bearer token')",
+					"    // pm.sendRequest('/token', (err, res) => {",
+					"    //     pm.environment.set(\"token\", res.token);",
+					"    // })",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6c9986db-01d2-40e9-a5bf-ac781a576d98",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c6aa5eb3-931e-4f03-ad98-fab3249c158e",
+			"key": "baseUrl",
+			"value": "https://e80dd17d-c380-4206-9059-a801a70d2ea8.mock.pstmn.io",
+			"type": "string"
+		},
+		{
+			"id": "717a3ce5-8ece-4426-aa07-f033fae94e24",
+			"key": "id",
+			"value": ""
+		}
+	]
+}

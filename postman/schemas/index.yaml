@@ -280,7 +280,7 @@ paths:
       tags:
         - Admin 
          
-  /network2:
+  /network:
     get:
       description: |-
         The `/network` endpoint returns a network report with statistics on user activity, resource management, and found security risks. 

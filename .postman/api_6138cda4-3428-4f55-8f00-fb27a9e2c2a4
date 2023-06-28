@@ -9,7 +9,9 @@ id = 6138cda4-3428-4f55-8f00-fb27a9e2c2a4
 
 [config.relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"25255214-de77ca06-b7ba-465b-b5ab-6e6f506f3d86","path":"example.json","metaData":{"generateCollectionPreferences":"{\"requestNameSource\":\"Fallback\",\"indentCharacter\":\"Space\",\"parametersResolution\":\"Schema\",\"folderStrategy\":\"Paths\",\"includeAuthInfoInExample\":true,\"keepImplicitHeaders\":false,\"includeDeprecated\":true,\"requestParametersResolution\":\"Schema\",\"updateCollectionSync\":true,\"exampleParametersResolution\":\"Schema\"}"}}
+files[] = {"id":"25255214-17f96383-2f0d-4357-8177-9003ab40b182","path":"Generation Example.json","metaData":{"generateCollectionPreferences":"{\"requestNameSource\":\"Fallback\",\"indentCharacter\":\"Space\",\"parametersResolution\":\"Schema\",\"folderStrategy\":\"Tags\",\"includeAuthInfoInExample\":true,\"enableOptionalParameters\":true,\"keepImplicitHeaders\":false,\"includeDeprecated\":true,\"requestParametersResolution\":\"Schema\",\"updateCollectionSync\":true,\"exampleParametersResolution\":\"Schema\"}"}}
+files[] = {"id":"25255214-3ceca386-93e4-40d3-bcb8-b8ec53748684","path":"GitHub (GraphQL).json","metaData":{"generateCollectionPreferences":"{\"updateCollectionSync\":true}"}}
+files[] = {"id":"25255214-1b083100-b85b-4efb-9679-a1b8f81e8b1e","path":"Users API.json","metaData":{"generateCollectionPreferences":"{\"updateCollectionSync\":true}"}}
 
 [config.relations.collections.metaData]
 
