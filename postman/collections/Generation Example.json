@@ -559,13 +559,98 @@
 				}
 			],
 			"id": "8be9dfa1-0af0-4912-88ab-8f03ecb148d8"
+		},
+		{
+			"name": "Get all network users",
+			"id": "ea65f612-b8de-41cb-ab13-c2430b855c4b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-mock-response-name",
+						"value": "<string>"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/admin/:adminId/users",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"admin",
+						":adminId",
+						"users"
+					],
+					"variable": [
+						{
+							"key": "adminId",
+							"value": "<string>"
+						}
+					]
+				},
+				"description": "This call fetches details about the all the network users currently registered in the system.\n\nThe response will contain an array `users` object which would be a list of all the network users along with their details."
+			},
+			"response": [
+				{
+					"id": "3ec50c37-e3c3-453b-91ac-369a85aaed63",
+					"name": "Get all network users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-mock-response-name",
+								"value": "<string>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/admin/:adminId/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								":adminId",
+								"users"
+							],
+							"variable": [
+								{
+									"key": "adminId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"createdAt\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"updatedAt\": \"<string>\",\n    \"updatedBy\": \"<string>\"\n  },\n  {\n    \"createdAt\": \"<string>\",\n    \"createdBy\": \"<string>\",\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"updatedAt\": \"<string>\",\n    \"updatedBy\": \"<string>\"\n  }\n]"
+				}
+			]
 		}
 	],
 	"variable": [
 		{
 			"id": "d23690db-6d6c-4165-bdd9-a69198ebe266",
 			"key": "baseUrl",
-			"value": "https://api.postmanova.com"
+			"value": "https://api.postmanova.com",
+			"type": "string"
 		}
 	]
 }
