@@ -172,7 +172,7 @@ paths:
         required: true
         schema:
           type: string
-  "/admin/{adminId}/users/{userId}":
+  "/admin/{adminId}/users/{userId}2":
     delete:
       description: |-
         This call deletes an existing network user having the specified id.  

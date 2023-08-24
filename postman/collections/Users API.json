@@ -356,6 +356,11 @@
 					{
 						"key": "Accept",
 						"value": "application/json"
+					},
+					{
+						"key": "test",
+						"value": "",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -792,13 +797,13 @@
 	],
 	"variable": [
 		{
-			"id": "c6aa5eb3-931e-4f03-ad98-fab3249c158e",
+			"id": "717b7f8e-4969-4aa2-a6fb-ae2242f8f9d1",
 			"key": "baseUrl",
 			"value": "https://e80dd17d-c380-4206-9059-a801a70d2ea8.mock.pstmn.io",
 			"type": "string"
 		},
 		{
-			"id": "717a3ce5-8ece-4426-aa07-f033fae94e24",
+			"id": "3ad39c4e-2a1b-4b71-b95a-7b1a71ba9536",
 			"key": "id",
 			"value": ""
 		}
