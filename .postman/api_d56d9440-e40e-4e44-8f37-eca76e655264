@@ -12,6 +12,7 @@ rootDirectory = postman/collections
 files[] = {"id":"25255214-dbf6afbc-e4a2-417a-92ab-00b370a91ca2","path":"Generation Example.json","metaData":{}}
 files[] = {"id":"25255214-16a09aa3-4e44-43b3-a085-01c73482c0ec","path":"GitHub (GraphQL).json","metaData":{}}
 files[] = {"id":"25255214-ac37f137-8d53-4b4f-9fb0-72c1c4657889","path":"Hannahs.json","metaData":{}}
+files[] = {"id":"25255214-6c99f53e-91f1-4686-b6d7-ce00009a7ffc","path":"Swagger Petstore.json","metaData":{}}
 files[] = {"id":"25255214-6c9c9699-9d15-461f-b842-cfc8b01b5839","path":"Users API.json","metaData":{}}
 
 [config.relations.collections.metaData]
