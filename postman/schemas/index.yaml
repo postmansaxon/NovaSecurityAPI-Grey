@@ -18,7 +18,7 @@ info:
 servers:
 - url: '{{baseUrl}}'
 paths:
-  /users:
+  /usersAndCats:
     post:
       summary: Add user
       description: Creates a new user.
