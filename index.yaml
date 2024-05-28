@@ -1,0 +1,230 @@
+openapi: 3.0.0
+x-apiname: users
+x-responsetime: 10000
+
+info:
+  title: Users API About Users
+  description: 'This an API for managing users that exist in the Union Fashion universe, allowing any desktop, web, mobile, or device application to integrate with users made via our platform.'
+  version: '1.0'
+  contact:
+    name: 'Example Support'
+    url: https://support.example.com/
+    email: bryan.cross@postman.com
+  license:
+    name: BSD-1-Clause
+    url: https://opensource.org/license/bsd-1-clause/
+  termsOfService: https://example.com/tos
+
+servers:
+- url: '{{baseUrl}}'
+paths:
+  /usersAndCats:
+    post:
+      summary: Add user
+      description: Creates a new user.
+      operationId: adduser
+      tags:
+        - users
+      requestBody:
+        description: 'A user schema.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+            example:
+              category: Jeans
+              brand: Union
+              color: black
+              gender: m
+              unitPrice: 49.99
+              unitSalePrice: 29.99
+      security:
+      - api_key: []
+      responses:
+        201:
+          description: 'Successful creation of user.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+              example:
+                status: success
+        500:
+          description: Internal server error
+      deprecated: false
+    get:
+      summary: Get users
+      description: Pulls a list of all user
+      operationId: getusers
+      tags:
+        - users
+      parameters:
+      - name: query
+        example: all-users
+        in: query
+        description: 'A query to search for users by.'
+        required: true
+        schema:
+          $ref: '#/components/schemas/users'
+          type: string
+          example: 'shirts'
+      security:
+      - api_key: []
+      responses:
+        200:
+          description: 'Get list of all users'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+              example:
+                status: success
+        403:
+          description: 'Unauthorized'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+              example:
+                status: failure
+        500:
+          description: Internal server error
+      deprecated: false
+  '/users/{userId}':
+    get:
+      summary: Get user
+      description: Retrieves a single user.
+      operationId: getuser
+      tags:
+      - users
+      parameters:
+        - name: userId
+          example: 1234-4321-1234-4321
+          in: path
+          description: The user ID to retrieve.
+          required: true
+          schema:
+            $ref: '#/components/schemas/users'
+            type: string
+            example: user-one
+      responses:
+        200:
+          description: 'Single user.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+              example:
+                status: success
+        500:
+          description: Internal server error
+      deprecated: false
+      security:
+      - api_key: []
+    put:
+      summary: Update
+      description: Supports either full or partial updates.
+      operationId: updateuser
+      tags:
+      - users
+      parameters:
+        - name: userId
+          example: 1234-4321-1234-4321
+          in: path
+          description: The user ID to retrieve.
+          required: true
+          schema:
+            $ref: '#/components/schemas/user'
+            type: string
+            example: user-one
+      security:
+      - api_key: []
+      requestBody:
+        description: 'A user object.'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user'
+            example:
+              unitSalePrice: 29.99
+        required: true
+      responses:
+        200:
+          description: 'Successfully updated.'
+        500:
+          description: Internal server error
+      deprecated: false
+    delete:
+      tags:
+      - users
+      summary: Delete
+      description: 'Delete an individual user.'
+      operationId: deleteuser
+      parameters:
+        - name: userId
+          example: 1234-4321-1234-4321
+          in: path
+          description: The user ID to retrieve.
+          required: true
+          schema:
+            $ref: '#/components/schemas/user'
+            type: string
+            example: user-one
+      security:
+      - api_key: []
+      responses:
+        204:
+          description: 'user deleted.'
+        500:
+          description: Internal server error
+      deprecated: false
+components:
+  securitySchemes:
+    api_key:
+      type: "apiKey"
+      name: "x-api-key"
+      in: "header"
+  schemas:
+    users:
+      type: object
+      items:
+        $ref: "#/components/schemas/user"
+    user:
+      title: user
+      required:
+      - identifier
+      - name
+      type: object
+      properties:
+        identifier:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string          
+        bio:
+          type: string
+        image:
+          type: string
+        url:
+          type: string
+        title:
+          type: string
+        dateOfBirth:
+          type: string          
+      example:
+        identifier: albert-einstein
+        firstName: Albert
+        lastName: Einstein
+        bio: black
+        image: m
+        url: 49.99
+        title: 29.99
+        dateOfBirth: 29.99
+
+tags:
+- name: users
+  description: 'A user object.'
+
+security:
+    - api_key : []
