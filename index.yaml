@@ -338,6 +338,64 @@ paths:
       summary: All network usage
       tags:
         - network
+  /network2:
+    get:
+      description: |-
+        The `/network` endpoint returns a network report with statistics on user activity, resource management, and found security risks. 
+        The response contains an array of network information containing the `name`, `id`, `owner` and `uid` of each network.
+
+      operationId: networkActivityReport
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Valid Response:
+                  value:
+                    network:
+                      - instanceId: dac5eac9-148d-a32e-b76b-3edee9da28f7
+                        name: Instance eu-1
+                        users: 631643
+                        monthly_active_users: 5000
+                        weekly_active_users: 3333
+                        average_minutes_per_user: 19   
+                      - instanceId: dac5eac9-148d-a32e-b76b-90586jfke0r9
+                        name: Instance us-1
+                        users: 477 
+                        monthly_active_users: 35
+                        weekly_active_users: 22
+                        average_minutes_per_user: 10
+                      - instanceId: dac5eac9-148d-a32e-b76b-cnu94308rcn8
+                        name: Instance ca-1
+                        users: 235436
+                        monthly_active_users: 7890
+                        weekly_active_users: 567
+                        average_minutes_per_user: 11
+              schema:
+                required: ["network"]
+                properties:
+                  network:
+                    items:
+                      properties:
+                        id:
+                          example: dac5eac9-148d-a32e-b76b-3edee9da28f7
+                          type: string
+                        name:
+                          example: Cloud API
+                          type: string
+                        owner:
+                          example: "631643"
+                          type: string
+                        uid:
+                          example: 631643-dac5eac9-148d-a32e-b76b-3edee9da28f7
+                          type: string
+                      type: object
+                    type: array
+                type: object
+          description: Valid Response
+      summary: All network usage
+      tags:
+        - network
 components:
   schemas:
     user:            

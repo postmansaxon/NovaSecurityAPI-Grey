@@ -590,13 +590,75 @@
 				}
 			],
 			"id": "7874bd0f-f4e3-431a-b504-7023f23d15ff"
+		},
+		{
+			"name": "All network usage",
+			"id": "1e292ac7-5bcc-4bc2-bd0c-7c10980ca00b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/network2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"network2"
+					]
+				},
+				"description": "The `/network` endpoint returns a network report with statistics on user activity, resource management, and found security risks. \nThe response contains an array of network information containing the `name`, `id`, `owner` and `uid` of each network."
+			},
+			"response": [
+				{
+					"id": "a748dbab-f8f8-4e4d-8234-3283c9212709",
+					"name": "Valid Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/network2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"network2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"network\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"uid\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"owner\": \"<string>\",\n      \"uid\": \"<string>\"\n    }\n  ]\n}"
+				}
+			]
 		}
 	],
 	"variable": [
 		{
 			"id": "e432840e-94c5-43bc-a825-47511c9dd1ab",
 			"key": "baseUrl",
-			"value": "https://api.postmanova.com"
+			"value": "https://api.postmanova.com",
+			"type": "string"
 		}
 	]
 }
