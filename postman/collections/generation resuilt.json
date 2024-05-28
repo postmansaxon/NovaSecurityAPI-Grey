@@ -773,7 +773,8 @@
 		{
 			"id": "98a0a4b4-f724-4b22-8e25-00b1d943f36c",
 			"key": "baseUrl",
-			"value": "{{baseUrl}}"
+			"value": "{{baseUrl}}",
+			"type": "any"
 		}
 	]
 }
