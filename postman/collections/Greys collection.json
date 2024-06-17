@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "b87bc33e-7615-4d27-bd48-065f67278645",
+		"name": "Greys collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25255214-b87bc33e-7615-4d27-bd48-065f67278645"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"id": "e6a3ce1b-a13c-4b7f-a895-632be262da5e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "www.google.com",
+					"host": [
+						"www",
+						"google",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

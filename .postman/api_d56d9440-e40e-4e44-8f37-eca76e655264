@@ -10,6 +10,7 @@ id = d56d9440-e40e-4e44-8f37-eca76e655264
 [config.relations.collections]
 rootDirectory = postman/collections
 files[] = {"id":"25255214-49d54052-6a9b-4699-bf17-ef14b976bb94","path":"Etsy Demo Collection 1.json","metaData":{"generateCollectionPreferences":"{\"requestNameSource\":\"Fallback\",\"indentCharacter\":\"Space\",\"parametersResolution\":\"Schema\",\"folderStrategy\":\"Paths\",\"includeAuthInfoInExample\":true,\"enableOptionalParameters\":true,\"keepImplicitHeaders\":false,\"includeDeprecated\":true,\"alwaysInheritAuthentication\":false,\"requestParametersResolution\":\"Schema\",\"updateCollectionSync\":true,\"exampleParametersResolution\":\"Schema\"}"}}
+files[] = {"id":"25255214-b87bc33e-7615-4d27-bd48-065f67278645","path":"Greys collection.json","metaData":{}}
 
 [config.relations.collections.metaData]
 
