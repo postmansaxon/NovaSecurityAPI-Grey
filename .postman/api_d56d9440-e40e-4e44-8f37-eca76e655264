@@ -9,7 +9,7 @@ id = d56d9440-e40e-4e44-8f37-eca76e655264
 
 [config.relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"25255214-49d54052-6a9b-4699-bf17-ef14b976bb94","path":"Etsy Demo Collection 1.json","metaData":{"generateCollectionPreferences":"{\"requestNameSource\":\"Fallback\",\"indentCharacter\":\"Space\",\"parametersResolution\":\"Schema\",\"folderStrategy\":\"Paths\",\"includeAuthInfoInExample\":true,\"enableOptionalParameters\":true,\"keepImplicitHeaders\":false,\"includeDeprecated\":true,\"alwaysInheritAuthentication\":false,\"requestParametersResolution\":\"Schema\",\"updateCollectionSync\":true,\"exampleParametersResolution\":\"Schema\"}"}}
+files[] = {"id":"25255214-df270d9e-c059-44f2-ae26-54759d7b8fae","path":"Nova Security Dcos.json","metaData":{"generateCollectionPreferences":"{\"requestNameSource\":\"Fallback\",\"indentCharacter\":\"Space\",\"parametersResolution\":\"Schema\",\"folderStrategy\":\"Tags\",\"includeAuthInfoInExample\":true,\"enableOptionalParameters\":true,\"keepImplicitHeaders\":false,\"includeDeprecated\":true,\"alwaysInheritAuthentication\":false,\"updateCollectionSync\":false,\"requestParametersResolution\":\"Schema\",\"exampleParametersResolution\":\"Schema\"}"}}
 
 [config.relations.collections.metaData]
 
